@@ -1,7 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.EasyTaskPro" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Primary color -->
+        <item name="colorPrimary">@color/whiteColor</item>
+        <item name="colorPrimaryVariant">@color/whiteColor</item>
+        <item name="colorOnPrimary">@color/primaryColor</item>
+
+        <!-- Secondary color -->
+        <item name="colorSecondary">@color/whiteColor</item>
+        <item name="colorSecondaryVariant">@color/whiteColor</item>
+        <item name="colorOnSecondary">@color/primaryColor</item>
+
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">@color/primaryColor</item>
     </style>
 </resources>
