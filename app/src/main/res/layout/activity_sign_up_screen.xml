@@ -61,15 +61,14 @@
                 android:id="@+id/emailField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
                 android:layout_marginBottom="20dp"
                 android:autofillHints="emailAddress"
-                android:layout_marginTop="7dp"
-                android:elevation="7dp"
                 android:background="@drawable/rounded_corner"
+                android:fontFamily="@font/rockford"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:padding="14dp"
-                android:fontFamily="@font/rockford"
                 android:textColor="@color/blackColor" />
 
             <TextView
@@ -87,7 +86,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:autofillHints="password"
-                android:elevation="7dp"
                 android:layout_marginTop="7dp"
                 android:background="@drawable/rounded_corner"
                 android:hint="Password"
@@ -113,7 +111,6 @@
                 android:autofillHints="password"
                 android:layout_marginTop="7dp"
                 android:background="@drawable/rounded_corner"
-                android:elevation="7dp"
                 android:hint="Confirm Password"
                 android:inputType="textPassword"
                 android:padding="14dp"
