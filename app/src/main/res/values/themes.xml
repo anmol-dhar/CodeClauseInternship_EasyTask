@@ -7,9 +7,11 @@
         <item name="colorOnPrimary">@color/primaryColor</item>
 
         <!-- Secondary color -->
-        <item name="colorSecondary">@color/whiteColor</item>
-        <item name="colorSecondaryVariant">@color/whiteColor</item>
+        <item name="colorSecondary">@color/blackColor</item>
+        <item name="colorSecondaryVariant">@color/blackColor</item>
         <item name="colorOnSecondary">@color/primaryColor</item>
+
+        <item name="android:textColorHint">#888888</item>
 
         <!-- Status bar color -->
         <item name="android:statusBarColor">@color/primaryColor</item>
