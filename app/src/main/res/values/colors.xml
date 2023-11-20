@@ -4,4 +4,5 @@
     <color name="greyColor">#93a0ac</color>
     <color name="blackColor">#FF000000</color>
     <color name="whiteColor">#FFFFFFFF</color>
+    <color name="backgroundColor">#f0f4fd</color>
 </resources>
