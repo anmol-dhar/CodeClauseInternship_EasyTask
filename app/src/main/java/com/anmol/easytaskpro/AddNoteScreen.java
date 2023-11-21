@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,6 +21,9 @@ public class AddNoteScreen extends AppCompatActivity {
     EditText title, content;
     Button createTask;
     ImageButton closeButton;
+    TextView pageTitleText;
+    String editTitle, editContent, docId;
+    boolean isEditMode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,23 @@ public class AddNoteScreen extends AppCompatActivity {
         content = findViewById(R.id.description);
         createTask = findViewById(R.id.createTask);
         closeButton = findViewById(R.id.closeButton);
+        pageTitleText = findViewById(R.id.newTaskTitle);
+
+        //Getting data from TaskAdapter to edit the text
+        editTitle = getIntent().getStringExtra("title");
+        editContent = getIntent().getStringExtra("content");
+        docId = getIntent().getStringExtra("docId");
+
+        if(docId!=null && !docId.isEmpty()){
+            isEditMode = true;
+        }
+
+        title.setText(editTitle);
+        content.setText(editContent);
+        if(isEditMode){
+            pageTitleText.setText("Edit  task");
+            createTask.setText("Edit");
+        }
 
         createTask.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +88,12 @@ public class AddNoteScreen extends AppCompatActivity {
 
     void saveNoteToFirebase(Note note) {
         DocumentReference documentReference;
-        documentReference = Utility.getCollectionReferenceForNotes().document();
+        if(isEditMode){
+            documentReference = Utility.getCollectionReferenceForNotes().document(docId);
+        }
+        else{
+            documentReference = Utility.getCollectionReferenceForNotes().document();
+        }
         documentReference.set(note).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

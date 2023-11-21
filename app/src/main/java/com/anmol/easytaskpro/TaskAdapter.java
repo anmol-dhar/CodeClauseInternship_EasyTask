@@ -1,6 +1,8 @@
 package com.anmol.easytaskpro;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +23,21 @@ public class TaskAdapter extends FirestoreRecyclerAdapter<Note, TaskAdapter.Task
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull TaskViewHolder holder, int position, @NonNull Note note) {
+    protected void onBindViewHolder(@NonNull TaskViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Note note) {
         holder.titleTextView.setText(note.title);
         holder.contentTextView.setText(note.content);
         holder.timestampTextView.setText(Utility.timestampToString(note.timestamp));
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, AddNoteScreen.class);
+            intent.putExtra("title",note.title);
+            intent.putExtra("content",note.content);
+            String docId = TaskAdapter.this.getSnapshots().getSnapshot(position).getId();
+            intent.putExtra("docId",docId);
+
+            context.startActivity(intent);
+        });
+
     }
 
     @NonNull
@@ -34,7 +47,7 @@ public class TaskAdapter extends FirestoreRecyclerAdapter<Note, TaskAdapter.Task
         return new TaskViewHolder(view);
     }
 
-    class TaskViewHolder extends RecyclerView.ViewHolder{
+    static class TaskViewHolder extends RecyclerView.ViewHolder{
 
         TextView titleTextView, contentTextView, timestampTextView;
 
