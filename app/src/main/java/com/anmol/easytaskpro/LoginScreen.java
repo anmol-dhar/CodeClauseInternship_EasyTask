@@ -77,6 +77,7 @@ public class LoginScreen extends AppCompatActivity {
                     if(firebaseAuth.getCurrentUser().isEmailVerified()){
                         startActivity(new Intent(LoginScreen.this, MainActivity.class));
                         finish();
+                        Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
                     }
                     else{
                         Toast.makeText(LoginScreen.this, "Email not verified, Please verify your email.", Toast.LENGTH_SHORT).show();
