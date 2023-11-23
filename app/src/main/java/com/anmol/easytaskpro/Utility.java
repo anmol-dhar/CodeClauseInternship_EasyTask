@@ -1,6 +1,5 @@
 package com.anmol.easytaskpro;
 
-import com.google.firebase.Firebase;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,7 +17,7 @@ public class Utility {
     }
 
     static String timestampToString(Timestamp timestamp){
-        return new SimpleDateFormat("dd/MM/yyyy").format(timestamp.toDate());
+        return new SimpleDateFormat("dd MMM, yyyy "+ " hh:mm aa").format(timestamp.toDate());
     }
 
 }
